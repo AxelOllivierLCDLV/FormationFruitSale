@@ -8,9 +8,8 @@ fun main(args: Array<String>) {
         while (scan.hasNextLine()) {
             val line: String = scan.nextLine().toLowerCase()
             val stringFruits = line.split(',')
-            println(stringFruits)
             stringFruits.forEach {
-                updateFruitsOf(it, fruits)
+                updateFruitsOf(it.trim(), fruits)
             }
            // updateFruitsOf(line, fruits)
             println(calculatePriceOf(fruits))
@@ -52,7 +51,6 @@ fun calculateCherryPrice(numberOfCherries: Int) = numberOfCherries * 75 - (numbe
 fun increment(map: MutableMap<Fruit, Int>, key: Fruit) {
     map.putIfAbsent(key, 0)
     map[key] = map[key]!! + 1
-    println(key)
 }
 
 enum class Fruit {
